@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Files — Sea Level Rise Impact Assessment, Miami Beach</title>
+<style>
+  :root { color-scheme: dark; --bg:#0a0f1a; --panel:#111827; --line:rgba(255,255,255,.1);
+          --teal:#2dd4bf; --emerald:#34d399; --ink:#e5e7eb; --dim:#94a3b8; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  header { padding:2.2rem 1.25rem 1.4rem; max-width:1100px; margin:0 auto; }
+  .kicker { color:var(--emerald); font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; font-weight:700; }
+  h1 { font-size:1.5rem; margin:.35rem 0 .3rem; line-height:1.25; }
+  .sub { color:var(--dim); font-size:.9rem; margin:0; }
+  a.back { display:inline-flex; align-items:center; gap:.4rem; color:var(--teal); text-decoration:none;
+           font-size:.8rem; font-weight:600; margin-top:1rem; }
+  a.back:hover { text-decoration:underline; }
+  main { max-width:1100px; margin:0 auto; padding:0 1.25rem 3rem;
+         display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.1rem; }
+  figure { margin:0; background:var(--panel); border:1px solid var(--line); border-radius:14px; overflow:hidden;
+           transition:border-color .2s, transform .2s; }
+  figure:hover { border-color:rgba(45,212,191,.4); transform:translateY(-2px); }
+  a.card { display:block; color:inherit; text-decoration:none; }
+  .imgwrap { background:#05070d; display:flex; align-items:center; justify-content:center; }
+  img { width:100%; height:auto; display:block; max-height:340px; object-fit:contain; }
+  figcaption { padding:.8rem .9rem 1rem; font-size:.82rem; color:var(--dim); line-height:1.4; }
+  footer { max-width:1100px; margin:0 auto; padding:0 1.25rem 3rem; color:var(--dim); font-size:.75rem; }
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Project Files</div>
+  <h1>Sea Level Rise Impact Assessment — Miami Beach</h1>
+  <p class="sub">Nikhil Bandla · 3D exposure model of 9,469 buildings under NOAA intermediate-high scenarios. Click any image to open it full size.</p>
+  <a class="back" href="./">&larr; Back to portfolio</a>
+</header>
+<main id="grid"></main>
+<footer>Nikhil Bandla · GIS Professional &amp; Cartographer</footer>
+<script>
+  const files = [
+    ["01-3d-inundation-cityscape.jpg", "3D buildings symbolised by first year of inundation — green stays dry through 2090, red floods by 2090."],
+    ["02-aerial-inundation-view.jpg", "Aerial view of inundation across the Miami Beach cityscape."],
+    ["03-elevation-transect-layout.png", "West-to-east elevation transect explaining the non-linear flooding (island mean 3.97 ft)."],
+    ["04-buildings-by-scenario.jpg", "Buildings inundated by scenario: 1.1% by 2030, 4.4% by 2050, 89.8% by 2090."],
+    ["05-island-exposure-view.jpg", "Island-wide exposure view."]
+  ];
+  document.getElementById('grid').innerHTML = files.map(([f,c]) => `
+    <figure><a class="card" href="${f}" target="_blank" rel="noopener">
+      <div class="imgwrap"><img src="${f}" alt="${c}" loading="lazy"></div>
+      <figcaption>${c}</figcaption>
+    </a></figure>`).join('');
+</script>
+</body>
+</html>
