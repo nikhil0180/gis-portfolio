@@ -20,14 +20,6 @@
   main { max-width:1100px; margin:0 auto; padding:0 1.25rem 3rem; }
   h2.section { font-size:.75rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
                color:var(--dim); margin:2.2rem 0 1rem; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.1rem; }
-  figure { margin:0; background:var(--panel); border:1px solid var(--line); border-radius:14px; overflow:hidden;
-           transition:border-color .2s, transform .2s; }
-  figure:hover { border-color:rgba(45,212,191,.4); transform:translateY(-2px); }
-  a.card { display:block; color:inherit; text-decoration:none; }
-  .imgwrap { background:#05070d; display:flex; align-items:center; justify-content:center; }
-  img { width:100%; height:auto; display:block; max-height:340px; object-fit:contain; }
-  figcaption { padding:.8rem .9rem 1rem; font-size:.82rem; color:var(--dim); line-height:1.4; }
   .doclist { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
   .doc { display:flex; align-items:center; gap:.9rem; background:var(--panel); border:1px solid var(--line);
          border-radius:14px; padding:1rem 1.1rem; text-decoration:none; color:inherit; transition:border-color .2s, transform .2s; }
@@ -44,34 +36,15 @@
 <header>
   <div class="kicker">Project Files</div>
   <h1>Land Pooling &amp; Town Planning Schemes</h1>
-  <p class="sub">Nikhil Bandla and team · A development plan for Bharath Nagar, Nampally, Hyderabad — selected through a multi-criteria site scoring process, grounded in household surveys, proposing land pooling as an alternative to compulsory acquisition. Click any panel to open it full size.</p>
-  <a class="back" href="./">&larr; Back to portfolio</a>
+  <p class="sub">Nikhil Bandla and team · A development plan for Bharath Nagar, Nampally, Hyderabad &mdash; selected through a multi-criteria site scoring process, grounded in household surveys, proposing land pooling as an alternative to compulsory acquisition.</p>
+  <a class="back" href="../../">&larr; Back to portfolio</a>
 </header>
 <main>
-  <h2 class="section">Studio Panels</h2>
-  <div class="grid" id="grid"></div>
-
   <h2 class="section">Documents</h2>
   <div class="doclist" id="docs"></div>
 </main>
 <footer>Nikhil Bandla · GIS Professional &amp; Cartographer</footer>
 <script>
-  const files = [
-    ["01-study-area-profile-jambagh.jpg", "Study area profile: Jambagh ward location, from India down to the ward boundary, with growth from 2003 to 2019"],
-    ["02-land-use-analysis-jambagh.jpg", "Land use analysis of Jambagh ward: built-up vs. open space, and land use classification by type"],
-    ["03-thematic-land-value-map.jpg", "Thematic land value map and preliminary organised / organic / public-space classification"],
-    ["04-bharath-nagar-site-maps.jpg", "Bharath Nagar: base map, layout map and land use map of the selected 39-acre site"],
-    ["05-sample-survey-analysis.jpg", "Sample survey: land ownership, housing type and social characteristics of Bharath Nagar residents"],
-    ["06-gentrification-impact-framework.jpg", "Gentrification framework: positive and negative impacts assessed for the proposed plan"]
-  ];
-  document.getElementById('grid').innerHTML = files.map(([f,c]) => `
-    <figure>
-      <a class="card" href="${f}" target="_blank" rel="noopener">
-        <div class="imgwrap"><img src="${f}" alt="${c}" loading="lazy"></div>
-        <figcaption>${c}</figcaption>
-      </a>
-    </figure>`).join('');
-
   const docIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path stroke-linecap="round" stroke-linejoin="round" d="M14 2v6h6"/></svg>`;
   const docs = [
     ["land-pooling-development-plan.pdf", "Full Studio Report", "Site selection, study area profile, survey analysis and the proposed development plan (16 panels)"]
