@@ -728,13 +728,7 @@
                 <span class="text-gray-400 text-[10px] tracking-widest font-mono" id="story-counter">1 / 4</span>
             </div>
 
-            <div class="flex items-start justify-between gap-2">
-                <h3 class="text-base sm:text-lg font-bold text-white leading-snug min-w-0" id="story-title">Title</h3>
-                <a id="story-files-btn" href="#" target="_blank" rel="noopener noreferrer" title="View project files" class="hidden shrink-0 items-center gap-1 mt-0.5 px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider transition-colors">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h4m3 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    <span>View</span>
-                </a>
-            </div>
+            <h3 class="text-base sm:text-lg font-bold text-white mb-0.5 leading-snug" id="story-title">Title</h3>
             <p class="text-[11px] font-semibold text-teal-400 mb-2.5" id="story-location">City, State</p>
 
             <!-- Project gallery tile: height follows the image so there's no letterbox. -->
@@ -775,10 +769,16 @@
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 </a>
                 
-                <button onclick="nextLocation()" class="w-full py-3.5 bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-[0_0_16px_rgba(13,148,136,0.4)] flex items-center justify-center gap-2">
-                    <span>Fly to Next Location</span>
-                    <span>→</span>
-                </button>
+                <div class="flex gap-2">
+                    <a id="story-files-btn" href="#" target="_blank" rel="noopener noreferrer" class="hidden flex-1 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-xs uppercase tracking-wider rounded-xl transition-colors items-center justify-center gap-1.5 text-center">
+                        <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h4m3 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        <span>View Project</span>
+                    </a>
+                    <button onclick="nextLocation()" class="flex-1 py-3.5 bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-[0_0_16px_rgba(13,148,136,0.4)] flex items-center justify-center gap-2">
+                        <span>Next Project</span>
+                        <span>→</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -910,11 +910,11 @@
                 // Drop real screenshots in here (data: URIs or hosted paths) and the
                 // gallery uses them instead of the generated slides.
                 images: [
-                    "01-3d-inundation-cityscape.jpg",
-                    "02-aerial-inundation-view.jpg",
-                    "03-elevation-transect-layout.png",
-                    "04-buildings-by-scenario.jpg",
-                    "05-island-exposure-view.jpg"
+                    "files/miami-sea-level-rise/01-3d-inundation-cityscape.jpg",
+                    "files/miami-sea-level-rise/02-aerial-inundation-view.jpg",
+                    "files/miami-sea-level-rise/03-elevation-transect-layout.png",
+                    "files/miami-sea-level-rise/04-buildings-by-scenario.jpg",
+                    "files/miami-sea-level-rise/05-island-exposure-view.jpg"
                 ],
                 imageCaptions: [
                     "3D buildings symbolised by first year of inundation",
@@ -924,7 +924,7 @@
                     "Island-wide exposure view"
                 ],
                 // Google Drive folder for this project's files.
-                filesUrl: "miami-files.html",
+                filesUrl: "files/miami-sea-level-rise/miami-files.html",
                 previewImage: makePreview("Miami Beach Sea Level Rise", "#0284c7", "#0c4a6e"),
                 slides: [
                     makeSlide("Miami Beach, Florida", "9,469 buildings tagged by first year of inundation", "#0284c7", "#0c4a6e", 0),
@@ -943,16 +943,25 @@
                 storyDescription: "At the University at Albany, modeled park accessibility for 2.7 million Chicago residents. Contrasting 800m Euclidean buffers against street centerline network service areas showed that straight-line buffers inflate access from 5.78% of city area to 9.22%, proving the critical role of network barriers in urban equity.",
                 problem: "Most park access studies just draw a circle around the park. The real question is how far that sits from how people actually walk there.",
                 action: "Built a street network in ArcGIS Pro Network Analyst, ran 800 m walking service areas from park entrances, and compared them against 400 m and 800 m straight-line buffers.",
-                outcome: "The 800 m network coverage (5.78% of the city) matched the 400 m buffer almost exactly, showing straight-line methods overstate access and misclassify roughly 94,000 residents.",
+                outcome: "The 800 m network coverage (5.78% of the city) matched the 400 m buffer almost exactly, showing straight-line methods overstate access by 59% and misclassify roughly 94,000 residents.",
                 metrics: [
                     { value: "5.78%", label: "real network coverage" },
                     { value: "94,000", label: "residents misclassified" },
-                    { value: "37%", label: "accessibility overstated" }
+                    { value: "59%", label: "buffers overestimate access" }
                 ],
                 tools: ["ArcGIS Pro", "Network Analysis", "Service Area Modeling", "Geodatabase", "Cartography", "Python", "R"],
                 driveUrl: "",
-                images: [],
-                filesUrl: "",
+                images: [
+                    "files/chicago-park-accessibility/01-euclidean-buffer-map.jpg",
+                    "files/chicago-park-accessibility/02-network-service-area-map.jpg",
+                    "files/chicago-park-accessibility/03-comparison-map.jpg"
+                ],
+                imageCaptions: [
+                    "Euclidean buffer analysis: 400m and 800m straight-line buffers around Chicago's parks",
+                    "Network service area analysis: 800m walking distance along the actual street network",
+                    "Comparison overlay: Euclidean buffer vs. network-based accessibility"
+                ],
+                filesUrl: "files/chicago-park-accessibility/chicago-files.html",
                 previewImage: makePreview("Chicago Park Accessibility", "#1e3a8a", "#0f172a"),
                 slides: [
                     makeSlide("Chicago, Illinois", "Network vs. Euclidean park service areas", "#1e3a8a", "#0f172a", 0),
@@ -967,20 +976,39 @@
                 category: "Remote Sensing & Spatial Regression",
                 title: "Urban Tree Canopy & Heat, New York City",
                 locationName: "New York City, New York, USA",
-                shortDescription: "Tested whether tree canopy actually cools New York, using 2021 Landsat 8 NDVI and land surface temperature with OLS, spatial lag and spatial error models. Canopy covers 12.63% of the city, but there was no significant link to temperature.",
-                storyDescription: "Derived NDVI and Land Surface Temperature from 2021 Landsat 8 imagery and paired them with high-resolution tree canopy raster data across New York City. Ordinary Least Squares, Spatial Lag and Spatial Error models tested canopy density against surface temperature while correcting for spatial dependence. Canopy covers 12.63% of the study area, but the regressions returned no statistically significant canopy-LST relationship despite strong spatial autocorrelation, pointing to impervious surfaces and building density as the dominant heat drivers. Team of three, University at Albany.",
+                shortDescription: "Tested whether tree canopy actually cools New York, using 2021 Landsat 8 NDVI and land surface temperature with OLS, spatial lag, spatial error and geographically weighted regression. Canopy covers 12.63% of the city; a small OLS effect vanished once spatial autocorrelation was corrected for.",
+                storyDescription: "Derived NDVI and Land Surface Temperature from 2021 Landsat 8 imagery and paired them with high-resolution tree canopy raster data across New York City. A first OLS model found a small, statistically significant negative canopy coefficient, but near-zero explanatory power (R\u00b2 \u2248 0). Moran's I on the residuals came back at 0.9976, confirming almost total spatial autocorrelation, so Spatial Lag and Spatial Error models were run to correct for it \u2014 and the canopy effect disappeared entirely in both. Geographically Weighted Regression then showed the relationship does vary locally, with a real cooling effect in parts of Brooklyn and Queens (local R\u00b2 up to 0.30). Team of three, University at Albany.",
                 problem: "Cities plant trees to cut heat. The question was whether New York's own data actually backs that up.",
-                action: "Derived NDVI and land surface temperature from 2021 Landsat 8 imagery, paired them with high-resolution canopy data, and tested the link with OLS, spatial lag and spatial error regressions.",
-                outcome: "No significant canopy-temperature relationship emerged despite strong spatial autocorrelation, meaning impervious surfaces and building density drive the heat signal more than tree cover at this scale.",
+                action: "Derived NDVI and land surface temperature from 2021 Landsat 8 imagery, paired them with high-resolution canopy data, and tested the link with OLS, spatial lag, spatial error and geographically weighted regression.",
+                outcome: "The initial OLS model found a small, statistically significant cooling effect from canopy \u2014 but with essentially zero explanatory power. Once spatial models corrected for near-total spatial autocorrelation in the residuals (Moran's I = 0.9976), that effect vanished: the original significance was a spatial artifact, not a real citywide relationship. GWR revealed the one place a genuine effect does show up \u2014 locally, in parts of Brooklyn and Queens.",
                 metrics: [
                     { value: "12.63%", label: "canopy cover" },
-                    { value: "2021", label: "Landsat 8 NDVI + LST" },
-                    { value: "3", label: "regression models" }
+                    { value: "0.9976", label: "Moran's I on residuals" },
+                    { value: "4", label: "regression models" }
                 ],
                 tools: ["Landsat 8", "NDVI", "Land Surface Temperature", "Spatial Regression", "Raster Analysis", "GeoDa", "Python", "R"],
                 driveUrl: "",
-                images: [],
-                filesUrl: "",
+                images: [
+                    "files/nyc-tree-canopy/01-nyc-boroughs-map.jpg",
+                    "files/nyc-tree-canopy/02-canopy-extent-map.jpg",
+                    "files/nyc-tree-canopy/03-canopy-histogram.jpg",
+                    "files/nyc-tree-canopy/04-ols-residuals-map.jpg",
+                    "files/nyc-tree-canopy/05-moran-scatterplot.jpg",
+                    "files/nyc-tree-canopy/06-gwr-local-coefficient-map.jpg",
+                    "files/nyc-tree-canopy/07-lst-hotspot-map.jpg",
+                    "files/nyc-tree-canopy/08-canopy-hotspot-map.jpg"
+                ],
+                imageCaptions: [
+                    "The five NYC boroughs used as the spatial framework for the analysis",
+                    "Tree canopy extent across NYC, clipped and reprojected to EPSG:4326",
+                    "Canopy vs. non-canopy pixel classification: 12.63% of the study area is tree canopy",
+                    "OLS residuals mapping canopy against land surface temperature",
+                    "Moran scatterplot on the OLS residuals: Moran's I = 0.9976",
+                    "GWR local coefficient: canopy's effect on LST varies by neighbourhood",
+                    "Land surface temperature hotspot analysis (Z-score method)",
+                    "Tree canopy hot and cold spots (Getis-Ord Gi*, KNN=8)"
+                ],
+                filesUrl: "files/nyc-tree-canopy/nyc-files.html",
                 previewImage: makePreview("NYC Urban Tree Canopy", "#065f46", "#022c22"),
                 slides: [
                     makeSlide("New York City", "Tree canopy covers 12.63% of the study area", "#065f46", "#022c22", 0),
@@ -995,71 +1023,113 @@
                 category: "Social GIS & Spatial Equity",
                 title: "Park Accessibility & Spatial Equity, The Bronx",
                 locationName: "The Bronx, New York, USA",
-                shortDescription: "Mapped walking catchments around all 129 Bronx parks and checked them against 387 census tracts. 94.3% of the borough sits within a ten-minute walk of a park. The 17 tracts that do not are where new ones would matter.",
-                storyDescription: "Modeled 400 m and 800 m walk catchments around 129 public parks covering 42.58 square miles, scripted in ArcPy and projected to NAD 1983 StatePlane New York Long Island. Intersecting those catchments with 387 census tracts classified served against underserved areas: 72.0% of land sits within a five-minute walk and 94.3% within ten, with 370 of 387 tracts meeting the standard, above the OneNYC target of 85%. The 17 tracts that fail are the actionable output for pocket parks and greenway connections.",
-                problem: "New York wants every resident within a ten-minute walk of a park. The question was how the Bronx actually measures up, tract by tract.",
-                action: "Scripted 400 m and 800 m walk catchments in ArcPy around all 129 public parks across 42.58 sq mi, then intersected them with the borough's 387 census tracts.",
-                outcome: "94.3% of the land and 370 of 387 tracts fall within a ten-minute walk, clearing the city's 85% goal, and the 17 tracts that fail are the concrete sites for new parks.",
+                shortDescription: "Buffered 400m and 800m walking distances around all 129 Bronx parks and checked them against the borough's 292 census tracts. 275 (94.2%) have some park access \u2014 the 17 that don't hold about 40,000 residents, nearly half of them Hispanic or Black.",
+                storyDescription: "Modeled 400m (~5-minute) and 800m (~10-minute) straight-line buffers around all 129 public parks across the Bronx's 42 square miles, then intersected them with the borough's 292 census tracts (2024 TIGER/Line, FIPS 005) to separate served from underserved areas. 275 of 292 tracts (94.2%) have some park access within 400m; the 17 that don't are home to roughly 40,000 residents. A demographic breakdown of those underserved tracts shows 24.1% Hispanic and 23.5% Black residents \u2014 nearly half the population \u2014 alongside 16% White, 4.2% Asian and 32.2% identifying as Other/Multi-race, framing the gap as an environmental justice question, not just a coverage one.",
+                problem: "New York wants residents within an easy walk of a park. The question was where the Bronx actually falls short, and who lives there.",
+                action: "Buffered 400m and 800m straight-line walking distances around all 129 public parks, then intersected the buffers with the borough's 292 census tracts to classify each as served or underserved, cross-referencing the gaps against ACS demographic data.",
+                outcome: "275 of 292 tracts (94.2%) have some park access within a 5-minute walk, but the 17 that don't hold about 40,000 residents \u2014 nearly half of them Hispanic or Black \u2014 turning a coverage gap into a measurable equity gap.",
                 metrics: [
-                    { value: "94.3%", label: "land within 10-min walk" },
-                    { value: "370 / 387", label: "tracts served" },
-                    { value: "17", label: "tracts underserved" }
+                    { value: "275 / 292", label: "tracts with park access" },
+                    { value: "17", label: "tracts underserved" },
+                    { value: "40,000", label: "residents affected" }
                 ],
-                tools: ["ArcGIS Pro", "Network Analysis", "Buffer Analysis", "Service Area Analysis", "ArcPy", "Python", "R"],
+                tools: ["ArcGIS Pro", "Buffer Analysis", "Spatial Intersection", "Census Data Integration", "Demographic Analysis"],
                 driveUrl: "",
-                images: [],
-                filesUrl: "",
+                images: [
+                    "files/bronx-park-accessibility/01-study-area-parks-distribution.jpg",
+                    "files/bronx-park-accessibility/02-buffer-analysis-map.jpg",
+                    "files/bronx-park-accessibility/03-service-area-analysis.jpg",
+                    "files/bronx-park-accessibility/04-10min-accessibility-map.jpg",
+                    "files/bronx-park-accessibility/05-underserved-tracts-map.jpg",
+                    "files/bronx-park-accessibility/06-underserved-demographics-pie.jpg",
+                    "files/bronx-park-accessibility/07-park-access-disparity-chart.jpg"
+                ],
+                imageCaptions: [
+                    "Study area and park distribution: 129 public parks across the Bronx by type",
+                    "400m and 800m straight-line walking buffers around all Bronx parks",
+                    "5 and 10-minute service area rendering across the Bronx and adjacent areas",
+                    "10-minute walking accessibility: buffer coverage against Bronx census tracts",
+                    "Underserved census tracts (yellow) with zero overlap to any park buffer",
+                    "Demographic breakdown of residents in underserved tracts",
+                    "Population with vs. without park access: roughly 40,000 residents underserved"
+                ],
+                filesUrl: "files/bronx-park-accessibility/bronx-files.html",
                 previewImage: makePreview("Bronx Park Accessibility", "#1e3a8a", "#0f172a"),
                 slides: [
-                    makeSlide("The Bronx, New York", "129 public parks across 42.58 square miles", "#1e3a8a", "#0f172a", 0),
-                    makeSlide("Coverage", "94.3% of land within a 10-minute walk of a park", "#1d4ed8", "#111827", 1),
-                    makeSlide("Actionable gap", "17 of 387 census tracts remain underserved", "#0f172a", "#1e3a8a", 2)
+                    makeSlide("The Bronx, New York", "129 public parks across 42 square miles", "#1e3a8a", "#0f172a", 0),
+                    makeSlide("Coverage", "94.2% of tracts have park access within a 5-minute walk", "#1d4ed8", "#111827", 1),
+                    makeSlide("The equity gap", "17 underserved tracts, ~40,000 residents, nearly half minority", "#0f172a", "#1e3a8a", 2)
                 ]
             },
             {
                 id: "land-pooling",
-                lat: 17.4399,
-                lng: 78.4983, // Hyderabad, Telangana, India
+                lat: 17.3937,
+                lng: 78.4739, // Nampally / Jambagh ward, Hyderabad, Telangana, India
                 category: "Land Readjustment Planning",
                 title: "Land Pooling & Town Planning Schemes",
-                locationName: "Hyderabad, Telangana, India",
-                shortDescription: "Applied land pooling as an alternative to compulsory acquisition in a planning studio: projected densities, set aside land for roads, open space and EWS housing, then redrew the plot boundaries so owners get a serviced plot back instead of a cheque.",
-                storyDescription: "Compulsory land acquisition stalls urban expansion through low compensation and owner resistance; land pooling offers a self-financing alternative. The studio projected future densities and space requirements for a neighbourhood planning area, allocated land for roads, open space, social infrastructure and EWS housing, then reconstituted plot boundaries into a readjusted layout returning serviced plots to original owners, with development cost recovered through betterment contribution. Group studio, B.Tech Planning, JNAFAU.",
-                problem: "Compulsory land acquisition for planned expansion keeps failing, with owners fighting the compensation and projects stalling for years.",
-                action: "In a planning studio, projected future densities, set aside land for roads, open space and EWS housing, then redrew the plot boundaries so each owner receives a smaller, serviced plot back.",
-                outcome: "The scheme pays for itself, recovering infrastructure cost through betterment contribution instead of an acquisition budget while keeping owners invested in the value it creates.",
-                tools: ["Town Planning Scheme", "Land Readjustment", "Density Projection", "Plot Reconstitution", "Layout Planning", "AutoCAD", "ArcGIS"],
+                locationName: "Bharath Nagar, Nampally, Hyderabad, India",
+                shortDescription: "Selected Bharath Nagar, a 39-acre pocket of Hyderabad's Jambagh ward, for a land pooling development plan after scoring five candidate wards on a multi-criteria index. Fieldwork found 80% built-up land and just 5% open space, and the plan returns 60% of pooled land to residents.",
+                storyDescription: "Applied Ahmedabad-style Town Planning Scheme methodology to Hyderabad: scored five GHMC wards (Borabanda, Jambagh, Manghalhat, Rahamath Nagar, Karwan) across macro criteria (population, density, land use, road network) and micro criteria (slum population, infrastructure) using a weighted DELPHI technique, ranking Jambagh first. Within Jambagh, a livability survey across three candidate pockets identified Bharath Nagar \u2014 39 acres, roughly 4,000 residents \u2014 as the priority site: 80% built-up, only 5% open space, an unorganised layout with no proper solid waste management. Household surveys found 69.9% of residents own their homes and 56.6% are Muslim, tied to two neighbourhood mosques. The resulting development plan proposes returning 60% of pooled land to original owners as serviced plots, funding infrastructure through betterment contribution rather than compulsory acquisition. Team of seven, B.Tech Urban & Regional Planning, JNAFAU.",
+                problem: "Compulsory land acquisition for planned expansion keeps failing across Indian cities, with owners fighting low compensation and projects stalling for years. The question was whether land pooling could work for a real, underserved Hyderabad neighbourhood.",
+                action: "Scored five Hyderabad wards on population, density, land use and infrastructure criteria via a weighted DELPHI technique to select Jambagh, then ran a livability survey across three candidate pockets within it to identify the 39-acre Bharath Nagar as the priority site, grounding the plan in household field surveys.",
+                outcome: "Bharath Nagar surveys confirmed 80% built-up land and just 5% open space, justifying its selection. The resulting plan proposes returning 60% of pooled land to original owners as serviced, better-connected plots, funding infrastructure through betterment contribution instead of a compulsory acquisition budget.",
+                metrics: [
+                    { value: "39 acres", label: "Bharath Nagar study area" },
+                    { value: "5", label: "wards scored for selection" },
+                    { value: "60%", label: "pooled land returned to owners" }
+                ],
+                tools: ["Town Planning Scheme", "Land Readjustment", "Site Selection Scoring", "Household Survey", "Plot Reconstitution", "Layout Planning"],
                 driveUrl: "",
                 images: [],
-                filesUrl: "",
+                filesUrl: "files/land-pooling/land-pooling-files.html",
                 previewImage: makePreview("Land Pooling Studio", "#7c2d12", "#2c1005"),
                 slides: [
-                    makeSlide("Hyderabad, India", "Land pooling as an alternative to compulsory acquisition", "#7c2d12", "#2c1005", 0),
-                    makeSlide("The mechanism", "Pool, deduct for public purpose, reconstitute, redistribute", "#9a3412", "#2c1005", 1),
-                    makeSlide("Recovery", "Betterment contribution funds the infrastructure", "#2c1005", "#7c2d12", 2)
+                    makeSlide("Bharath Nagar, Hyderabad", "39-acre site selected from five scored wards", "#7c2d12", "#2c1005", 0),
+                    makeSlide("The finding", "80% built-up, 5% open space, unorganised layout", "#9a3412", "#2c1005", 1),
+                    makeSlide("The proposal", "60% of pooled land returned to original owners", "#2c1005", "#7c2d12", 2)
                 ]
             },
             {
                 id: "hyderabad-green-thesis",
-                lat: 17.4126,
-                lng: 78.4482, // J.P. Narayan Road stretch, Hyderabad
+                lat: 17.3608,
+                lng: 78.5203, // Saidabad, GHMC Wards 18-21, Hyderabad
                 category: "Green Infrastructure Research",
                 title: "Role of Urban Green Spaces in Residential Neighbourhoods",
-                locationName: "Hyderabad, Telangana, India",
-                shortDescription: "Inventoried the neighbourhood green spaces along the Jaya Prakash Narayan Road stretch in Hyderabad by type, what was in them and who used them, then measured that against planning norms. B.Tech thesis.",
-                storyDescription: "Rapid residential densification along the Jaya Prakash Narayan Road stretch was consuming neighbourhood green space with no assessment of what remained or who used it. The thesis delineated the corridor as a case study, inventoried green spaces by type, physical elements and the activities different age groups use them for, and evaluated provision against planning norms, linking availability to health, social interaction, economic value and sense of place. B.Tech thesis, JNAFAU, 2021.",
-                problem: "Neighbourhoods along J.P. Narayan Road in Hyderabad were filling in fast, with no record of the green space left or who still used it.",
-                action: "For the B.Tech thesis, took the corridor as a case study, inventoried every green space by type, physical elements and age-group use, and measured provision against planning norms.",
-                outcome: "The study made the case that neighbourhood green space behaves like infrastructure, tracking with health, social interaction, property value and sense of place rather than being mere amenity.",
-                tools: ["Urban Planning Research", "Field Survey", "Land Use Analysis", "Planning Norms", "ArcGIS", "Data Collection"],
+                locationName: "Saidabad, Hyderabad, Telangana, India",
+                shortDescription: "Measured green space provision across Saidabad, a 603-acre residential mandal in Hyderabad, against national planning norms. Just 5.46 acres \u2014 6.71% of the land \u2014 is green space, roughly half the 12\u201314% URDPFI standard for a neighbourhood this size.",
+                storyDescription: "Compared Saidabad's own land use against the planning norms it's meant to meet: of 603.11 acres surveyed across GHMC Wards 18\u201321, only 5.46 acres (6.71%) is park or open green space, against an URDPFI standard of 12\u201314% for an area this size \u2014 roughly half the mandated minimum. Mapped land use across the mandal, tracked its growth from 2000 to 2021 using satellite imagery, and located and photographed all five named community parks in the study area. Saidabad sits within the Charminar circle, which has the lowest share of parks of any GHMC zone (9%) against Khairtabad's 27%. A SWOT analysis and species-level greening recommendations \u2014 green roofs, green streets, land conservation \u2014 round out the proposal. B.Tech thesis, JNAFAU, 2021.",
+                problem: "Green space is treated as a nice-to-have in Indian residential planning rather than a mandated service. The question was whether an actual Hyderabad neighbourhood meets the standard it's supposed to.",
+                action: "Mapped land use across Saidabad's 603-acre study area (GHMC Wards 18\u201321), tracked its urban growth from 2000 to 2021 via satellite imagery, and located and photographed all five named community parks. Compared the resulting green space percentage against URDPFI planning norms and ran a SWOT analysis to frame recommendations.",
+                outcome: "Saidabad has just 5.46 acres of green space in 603.11 acres \u2014 6.71%, against a mandated 12\u201314% for a neighbourhood this size. It sits in the GHMC's lowest-scoring zone for park coverage. The finding grounds concrete recommendations: green roofs, green streets and land conservation to close the gap.",
+                metrics: [
+                    { value: "6.71%", label: "green space (vs. 12-14% standard)" },
+                    { value: "5.46 / 603", label: "acres green vs. total" },
+                    { value: "5", label: "parks located & surveyed" }
+                ],
+                tools: ["GIS Mapping", "Land Use Classification", "Satellite Imagery Analysis", "Field Survey", "Planning Norms Comparison", "SWOT Analysis"],
                 driveUrl: "",
-                images: [],
-                filesUrl: "",
+                images: [
+                    "files/urban-green-spaces-thesis/01-study-area-profile-saidabad.jpg",
+                    "files/urban-green-spaces-thesis/02-saidabad-growth-timeline.jpg",
+                    "files/urban-green-spaces-thesis/03-landuse-landcover-map.jpg",
+                    "files/urban-green-spaces-thesis/04-green-spaces-identified.jpg",
+                    "files/urban-green-spaces-thesis/05-green-space-index.jpg",
+                    "files/urban-green-spaces-thesis/06-swot-analysis.jpg"
+                ],
+                imageCaptions: [
+                    "Study area profile: Saidabad location, demographics and the citywide green-space shortfall",
+                    "Twenty-year growth timeline: Saidabad from 2000 to 2021, satellite imagery",
+                    "Land use and land cover map of the Saidabad study area",
+                    "All five named parks located and photographed on site",
+                    "Green space index: 6.71% against the URDPFI standard of 12\u201314%",
+                    "SWOT analysis of green space provision in the study area"
+                ],
+                filesUrl: "files/urban-green-spaces-thesis/thesis-files.html",
                 previewImage: makePreview("Urban Green Spaces Thesis", "#581c87", "#2e1065"),
                 slides: [
-                    makeSlide("Hyderabad, India", "Green space along the J.P. Narayan Road stretch", "#581c87", "#2e1065", 0),
-                    makeSlide("Method", "Inventory by type, elements and age-group activity", "#6d28d9", "#2e1065", 2),
-                    makeSlide("Framing", "Provision measured against planning norms", "#2e1065", "#581c87", 1)
+                    makeSlide("Saidabad, Hyderabad", "603-acre residential mandal, GHMC Wards 18-21", "#581c87", "#2e1065", 0),
+                    makeSlide("The finding", "Just 6.71% green space vs. a 12-14% standard", "#6d28d9", "#2e1065", 2),
+                    makeSlide("On the ground", "5 named parks located and photographed", "#2e1065", "#581c87", 1)
                 ]
             }
         ];
